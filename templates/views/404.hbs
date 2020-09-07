@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+{{>head}}
+<body>
+    <div class="container">
+        {{> nav}}
+        <div class="content">
+              <div class="hata-kutusu">
+            <h2 class="hata-numara">{{title}}</h2>
+            <h3 class="hata-mesaj">{{errorMessage}} </h3>
+            <p class="hata-aciklama">
+                Aradığınızı bulamadıysanız tekrar aramayı deneyin <br>
+                Ya da aradığınız şey sayfa yöneticileri tarafından silinmiş olabilir
+            </p>
+            <a href="/" class="hata-link">Anasayfaya Dön</a>
+        </div>
+        </div>
+      
+        {{> footer}}
+    </div>
+    
+</body>
+</html>
