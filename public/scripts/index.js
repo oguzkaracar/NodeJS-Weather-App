@@ -11,7 +11,7 @@ weatherForm.addEventListener("submit", (e) => {
 
 	let data = searchInput.value;
 	//`https://api.openweathermap.org/data/2.5/weather?q=${data}&units=metric&appid=41a33c1f6739002732956da85ecbd727`
-	fetch(`http://localhost:3000/weather/?address=${data}`)
+	fetch(`/weather/?address=${data}`)
 		.then((response) => response.json())
 		.then((data) => {
 			if (data.message) {

@@ -6,6 +6,8 @@ const geocode = require("./utils/geocode");
 
 const app = express();
 
+const port = process.env.PORT || 3000;
+
 // Define Paths for express config
 const publicDirectory = path.join(__dirname, "../public"); // public klasör path i
 const viewsPath = path.join(__dirname, "../templates/views"); // views klasör path i
@@ -85,4 +87,4 @@ app.use((req, res) => {
 	});
 });
 
-app.listen(process.env.PORT || 3000, () => console.log("Server listening"));
+app.listen(port, () => console.log("Server listening is on" + port));
