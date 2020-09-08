@@ -15,7 +15,7 @@ weatherForm.addEventListener("submit", (e) => {
 		.then((response) => response.json())
 		.then((data) => {
 			if (data.message) {
-				city.innerHTML = `<h3>${data.message}</h3>`;
+				city.innerHTML = `<h4>${data.message}</h4>`;
 			} else {
 				let date = new Date(data.time * 1000).toLocaleString().split(',')[1];
 
