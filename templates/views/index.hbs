@@ -5,17 +5,26 @@
     <div class="container">
         {{> nav}}
         
-        <div class="content">
-             <h1>{{title}}</h1>
-            <form>
-                <input type="text" name="search" id="search-location" placeholder="Location">
-                <button type="submit">Search</button>
-            </form>
-
+        <div class="content weather">
+             
+             <div id="search-bar">
+                 <h1>{{title}}</h1>
+                 <form>
+                    <input type="text" name="search" id="search-location" placeholder="Location" required>
+                    <br>
+                    <button type="submit">Search</button>
+                </form>
+             </div>
+            
             <div id="showForecast" class="showInfo">
-                <p id="message-one"></p>
-                <p id="message-two"></p>
-                <img src="" alt="" id="weather-img">
+                <p id="city">City</p>
+                 <p id="weather-img">
+                    <img src="https://raw.githubusercontent.com//steeven7/Weather_App/master/assets/unknown.png" alt="">
+                </p>
+                <p id="message-one">Current Temp: 0</p>
+                <p id="message-two">RAIN</p>
+                <p id="time">Last Updated Time: 10:00 PM</p>
+              
             </div>
         </div>
        

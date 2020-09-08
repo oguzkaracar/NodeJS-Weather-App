@@ -3,7 +3,6 @@ const path = require("path");
 const express = require("express");
 const hbs = require("hbs");
 const geocode = require("./utils/geocode");
-const forecast = require("./utils/forecast");
 
 const app = express();
 
@@ -61,23 +60,19 @@ app.get("/weather", (req, res) => {
 		});
 	}
 
-	geocode(address, (err, { latitude, longitude } = {}) => {
+	geocode(address, (err, { city, country, temp, description, icon, time } = {}) => {
 		if (err) {
-			return res.send({ error: "Unable to find location. Try another search. " });
-			// return ile döndürmezsek, query olmaması durumunda takip eden res.send kodları console da hata verecektir. bunun önüne geçmek için kullanırız. callback fonksiyonu sona erdirir...
+			return res.send({
+				message: "city not found.",
+			});
 		} else {
-			forecast(latitude, longitude, (err, { region, temperature, feelslike, sonOlcum, foto } = {}) => {
-				if (err) {
-					return res.send({ error: "Unable to find location. Try another search." });
-				} else {
-					res.send({
-						region,
-						temperature,
-						feelslike,
-						sonOlcum,
-						foto,
-					});
-				}
+			res.send({
+				city,
+				country,
+				temp,
+				description,
+				icon,
+				time,
 			});
 		}
 	});
@@ -90,4 +85,4 @@ app.use((req, res) => {
 	});
 });
 
-app.listen(3000, () => console.log("Server listening"));
+app.listen(process.env.PORT || 3000, () => console.log("Server listening"));
